@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="mapper.LectureMapper">
+    <resultMap id="LectureResult" type="persistence.dto.LectureDTO">
+        <result property="lectureCode" column="lecture_code"/>
+        <result property="lectureName" column="lecture_name"/>
+        <result property="lectureLevel" column="lecture_level"/>
+        <result property="lectureCredit" column="lecture_credit"/>
+    </resultMap>
+
+    <select id="selectLectureAll" resultMap="LectureResult">
+        SELECT * FROM LECTURE
+    </select>
+
+    <select id="selectLectureByLevel" resultMap="LectureResult">
+        SELECT * FROM LECTURE
+        WHERE lecture_level = #{lectureLevel}
+    </select>
+
+    <select id="selectLectureByLectureCode" resultMap="LectureResult">
+        SELECT * FROM LECTURE
+        WHERE lecture_code = #{lectureCode}
+    </select>
+
+    <update id="updateLectureName">
+        UPDATE LECTURE
+        SET lecture_name=#{lectureName}
+        WHERE lecture_code=#{lectureCode}
+    </update>
+
+    <insert id="insertLecture">
+        INSERT INTO LECTURE(lecture_code,lecture_name,lecture_level,lecture_credit)
+        VALUES(#{lectureCode},#{lectureName},#{lectureLevel},#{lectureCredit})
+    </insert>
+
+    <delete id="deleteLecture">
+        DELETE FROM LECTURE
+        WHERE lecture_code=#{lectureCode}
+    </delete>
+
+    <update id="updateLectureByCondition">
+        UPDATE LECTURE
+        <set>
+            <if test="lectureName != 0">lecture_name=#{lectureName},</if>
+            <if test="lectureLevel != 0">lecture_level=#{lectureLevel},</if>
+            <if test="lectureCredit != 0">lecture_credit=#{lectureCredit},</if>
+        </set>
+        WHERE lecture_code=#{lectureCode}
+    </update>
+
+</mapper>
+
+
+
