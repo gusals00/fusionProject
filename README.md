@@ -9,5 +9,6 @@
 ![image](https://user-images.githubusercontent.com/87007552/147639130-d8b52f7f-3ecd-4d7b-83d0-440bd723d0a8.png)
 --------------
 ## DB 설계
-![수강신청](https://user-images.githubusercontent.com/87007552/147640839-24dbe2c6-148e-4d65-a349-8e0ee7d61a2c.png)
+![수강신청](https://user-images.githubusercontent.com/87007552/155098223-38b4356b-8514-461b-afb1-33f14604f8ff.png)
+
 
